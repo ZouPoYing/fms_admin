@@ -8,7 +8,7 @@
                         <li>基金名字：{{item.fundName}}</li>
                         <li>基金公司：{{item.fundCompany}}</li>
                         <li>基金经理：{{item.fundManager}}</li>
-                        <li>基金规模：{{item.fundMoney}}</li>
+                        <li>初始基金规模：{{item.fundMoney}}</li>
                         <li>风险程度：{{item.fundRiskLevel}}</li>
                         <li>收益能力：{{item.earning}}</li>
                         <li>抗风险波动：{{item.antiRisk}}</li>
@@ -44,7 +44,7 @@
                         <el-form-item label="投资性价比" prop="costPerformance">
                             <el-input type="text" v-model="setForm.costPerformance"></el-input>
                         </el-form-item>
-                        <el-form-item label="基金规模" prop="fundMoney">
+                        <el-form-item label="初始基金规模" prop="fundMoney">
                             <el-input type="text" v-model="setForm.fundMoney"></el-input>
                         </el-form-item>
                         <el-form-item label="基金公司" prop="fundCompany">

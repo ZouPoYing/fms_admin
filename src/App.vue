@@ -12,7 +12,8 @@
                   text-color="#fff"
                   active-text-color="#ffd04b">
             <el-menu-item @click="toFundManage" index="1">基金管理</el-menu-item>
-            <el-menu-item index="2" disabled>欢迎您:{{userName}}</el-menu-item>
+              <el-menu-item @click="toUpAndDownManage" index="2">基金日涨跌管理</el-menu-item>
+            <el-menu-item index="3" disabled>欢迎您:{{userName}}</el-menu-item>
           </el-menu>
         </el-header>
         <el-main>
@@ -64,6 +65,9 @@ export default {
     },
     toFundManage() {
       this.$router.push('/fundManage')
+    },
+    toUpAndDownManage() {
+      this.$router.push('/upAndDownManage')
     },
     getUserName() {
       this.userName = this.$store.state.user.userName
