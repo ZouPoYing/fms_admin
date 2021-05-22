@@ -1,6 +1,11 @@
 <template>
     <div>
         <h1>基金管理</h1>
+        <el-row>
+            <el-col :span="6">
+                <el-input style="margin-left: 80px" v-model="msg" @blur="search" size="mini" placeholder="输入基金名字/公司/经理/编号搜索"/>
+            </el-col>
+        </el-row>
         <div class="box">
             <div style="width: 20%;padding: 10px" v-for="(item, index) in tableData" :key="index">
                 <el-card :body-style="{ padding: '0px' }">
@@ -81,13 +86,24 @@
         tableData: [],
         setForm: [],
         title: '新增',
-        isAdd: true
+        isAdd: true,
+        msg: ''
       }
     },
     created() {
       this.getUser();
     },
     methods: {
+      search() {
+        var self = this
+        axios.post('http://localhost:9090/fms/fund/getFundSS1', {
+          key: self.msg
+        }).then(function(res){
+          self.tableData = res.data
+        }).catch(function(err){
+          self.$message(err);
+        })
+      },
       getUser() {
         var self = this;
         if (self.$store.state.user.userId == '') {
